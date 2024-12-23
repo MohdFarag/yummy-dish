@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "856969684837",
+    "project_id": "yummy-dish-p42cvq",
+    "storage_bucket": "yummy-dish-p42cvq.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:856969684837:android:8b42aaa68a10d96e38e38c",
+        "android_client_info": {
+          "package_name": "com.mycompany.yummydish"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq0pEXlNEz6Fxut-qyLB6qCsYLLdgZrZI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
