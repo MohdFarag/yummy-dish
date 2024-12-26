@@ -2,13 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
+
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -77,23 +75,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const FeedWidget() : const OnBoarding01Widget(),
+          appStateNotifier.loggedIn ? const FeedWidget() : const OnboardingWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const FeedWidget() : const OnBoarding01Widget(),
+              appStateNotifier.loggedIn ? const FeedWidget() : const OnboardingWidget(),
         ),
         FFRoute(
-          name: 'onBoarding01',
-          path: '/onBoarding01',
-          builder: (context, params) => const OnBoarding01Widget(),
-        ),
-        FFRoute(
-          name: 'Onboarding02',
-          path: '/onboarding02',
-          builder: (context, params) => const Onboarding02Widget(),
+          name: 'Onboarding',
+          path: '/onboarding',
+          builder: (context, params) => const OnboardingWidget(),
         ),
         FFRoute(
           name: 'feed',
@@ -105,6 +98,76 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Authorization',
           path: '/authorization',
           builder: (context, params) => const AuthorizationWidget(),
+        ),
+        FFRoute(
+          name: 'ForgotPassword',
+          path: '/forgotPassword',
+          builder: (context, params) => const ForgotPasswordWidget(),
+        ),
+        FFRoute(
+          name: 'UserProfile',
+          path: '/userProfile',
+          requireAuth: true,
+          builder: (context, params) => const UserProfileWidget(),
+        ),
+        FFRoute(
+          name: 'ViewRecipe',
+          path: '/viewRecipe',
+          requireAuth: true,
+          builder: (context, params) => ViewRecipeWidget(
+            recipeId: params.getParam(
+              'recipeId',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['recipes'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'AboutUs',
+          path: '/aboutUs',
+          builder: (context, params) => const AboutUsWidget(),
+        ),
+        FFRoute(
+          name: 'test',
+          path: '/test',
+          builder: (context, params) => const TestWidget(),
+        ),
+        FFRoute(
+          name: 'CreateRecipe',
+          path: '/createRecipe',
+          requireAuth: true,
+          builder: (context, params) => const CreateRecipeWidget(),
+        ),
+        FFRoute(
+          name: 'CommentOnRecipe',
+          path: '/commentOnRecipe',
+          builder: (context, params) => CommentOnRecipeWidget(
+            recipeId: params.getParam(
+              'recipeId',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['recipes'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'UserFavourites',
+          path: '/userFavourites',
+          requireAuth: true,
+          builder: (context, params) => const UserFavouritesWidget(),
+        ),
+        FFRoute(
+          name: 'UserLikes',
+          path: '/userLikes',
+          requireAuth: true,
+          builder: (context, params) => const UserLikesWidget(),
+        ),
+        FFRoute(
+          name: 'UserRecipes',
+          path: '/userRecipes',
+          requireAuth: true,
+          builder: (context, params) => const UserRecipesWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -224,7 +287,6 @@ class FFParameters {
     ParamType type, {
     bool isList = false,
     List<String>? collectionNamePath,
-    StructBuilder<T>? structBuilder,
   }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -243,7 +305,6 @@ class FFParameters {
       type,
       isList,
       collectionNamePath: collectionNamePath,
-      structBuilder: structBuilder,
     );
   }
 }
@@ -277,7 +338,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/onBoarding01';
+            return '/onboarding';
           }
           return null;
         },
@@ -291,15 +352,11 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).primary,
-                      ),
-                    ),
+              ? Container(
+                  color: Colors.transparent,
+                  child: Image.asset(
+                    'assets/images/New_Project.png',
+                    fit: BoxFit.cover,
                   ),
                 )
               : page;

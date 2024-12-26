@@ -144,46 +144,7 @@ bool _isSupportedLocale(Locale locale) {
 }
 
 final kTranslationsMap = <Map<String, Map<String, String>>>[
-  // onBoarding01
-  {
-    'gt6sejnb': {
-      'en': 'Personalized recipe discovery',
-      'ar': '',
-    },
-    'nlc3hxqz': {
-      'en': 'I have some great food options here!! Yum yum!!',
-      'ar': '',
-    },
-    '6ms0cu6q': {
-      'en': 'Awesome Recipes',
-      'ar': '',
-    },
-    '0vjn6oun': {
-      'en': 'I have some great food options here!! Yum yum!!',
-      'ar': '',
-    },
-    't7bj4g8d': {
-      'en': 'Personalized recipe discovery',
-      'ar': '',
-    },
-    '4m54luna': {
-      'en': 'I have some great food options here!! Yum yum!!',
-      'ar': '',
-    },
-    'h49hi2cy': {
-      'en': 'Next',
-      'ar': '',
-    },
-    'lnrf481n': {
-      'en': 'Skip',
-      'ar': '',
-    },
-    'vefmd0t7': {
-      'en': 'Home',
-      'ar': '',
-    },
-  },
-  // Onboarding02
+  // Onboarding
   {
     'ev5ruulj': {
       'en': 'Join us & cook with confidence',
@@ -228,7 +189,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Search...',
       'ar': '',
     },
-    'i32b485h': {
+    '83em2p5p': {
       'en': 'Home',
       'ar': '',
     },
@@ -260,7 +221,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '',
     },
     '4nrdqeor': {
-      'en': 'Password',
+      'en': 'Confirm Password',
       'ar': '',
     },
     '0az6bh0o': {
@@ -324,10 +285,308 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '',
     },
   },
-  // EmptyWidget
+  // ForgotPassword
   {
-    'uig3ff8g': {
-      'en': 'No Content',
+    'w1ikdch8': {
+      'en': 'Back',
+      'ar': '',
+    },
+    'yhfdu78q': {
+      'en': 'Forgot Password',
+      'ar': '',
+    },
+    't4pjxn6u': {
+      'en':
+          'We will send you an email with a link to reset your password, please enter the email associated with your account below.',
+      'ar': '',
+    },
+    'mm4h5t7f': {
+      'en': 'Your email address...',
+      'ar': '',
+    },
+    'x6uyesxu': {
+      'en': 'Enter your email...',
+      'ar': '',
+    },
+    'qkab616f': {
+      'en': 'Send Link',
+      'ar': '',
+    },
+    'i32b485h': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
+  // UserProfile
+  {
+    '81y41i4i': {
+      'en': 'Logout',
+      'ar': '',
+    },
+    '8rw1usxe': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
+  // ViewRecipe
+  {
+    'iuhglh4z': {
+      'en': 'Ingredients',
+      'ar': '',
+    },
+    'vqayui8d': {
+      'en': 'Steps',
+      'ar': '',
+    },
+    'vp6w5m2y': {
+      'en': 'Comments',
+      'ar': '',
+    },
+    'mb877xzk': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
+  // AboutUs
+  {
+    '28be3r1c': {
+      'en': 'Yummy Dish',
+      'ar': '',
+    },
+    'zbz7tcxq': {
+      'en': 'Our Story',
+      'ar': '',
+    },
+    'a20ji9pn': {
+      'en':
+          'Founded in 2023, Yummy Dish was born from a simple idea: everyone deserves to cook with confidence. We believe that cooking should be accessible, enjoyable, and rewarding for all, regardless of experience level.',
+      'ar': '',
+    },
+    'dxbrjip5': {
+      'en': 'Our Mission',
+      'ar': '',
+    },
+    'bkk1i6r1': {
+      'en':
+          'To empower home cooks with carefully curated recipes, expert tips, and a supportive community that celebrates the joy of cooking.',
+      'ar': '',
+    },
+    'h78mke1u': {
+      'en': 'What We Offer',
+      'ar': '',
+    },
+    'ja3exdym': {
+      'en': '1000+ Recipes',
+      'ar': '',
+    },
+    '436sed8j': {
+      'en': 'Active Community',
+      'ar': '',
+    },
+    'utrxdi3i': {
+      'en': 'Expert Tips',
+      'ar': '',
+    },
+    's28reu42': {
+      'en': 'Join Our Community',
+      'ar': '',
+    },
+    'g73zp4c3': {
+      'en':
+          'Connect with fellow food enthusiasts, share your culinary creations, and embark on a flavorful journey with Yummy Dish.',
+      'ar': '',
+    },
+    '0a7ib1vd': {
+      'en': 'Get Started',
+      'ar': '',
+    },
+  },
+  // test
+  {
+    's99b6a7p': {
+      'en': 'Page Title',
+      'ar': '',
+    },
+    'frng7m4o': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
+  // CreateRecipe
+  {
+    '2rkm4jsd': {
+      'en': 'Create Recipe',
+      'ar': '',
+    },
+    '50vwp2qu': {
+      'en': 'Recipe Details',
+      'ar': '',
+    },
+    'tq2sgc0q': {
+      'en': 'Recipe Title',
+      'ar': '',
+    },
+    '1elc8c5n': {
+      'en': 'Short Description',
+      'ar': '',
+    },
+    't1zhsgan': {
+      'en': 'Chicken',
+      'ar': '',
+    },
+    'zsxc11tw': {
+      'en': 'Option 2',
+      'ar': '',
+    },
+    '0am13soq': {
+      'en': 'Option 3',
+      'ar': '',
+    },
+    '9iqjggrl': {
+      'en': 'Select Category...',
+      'ar': '',
+    },
+    'mk0f36pl': {
+      'en': 'Search...',
+      'ar': '',
+    },
+    'rs0l01og': {
+      'en': 'Ingredients',
+      'ar': '',
+    },
+    'u2g49w4l': {
+      'en': '+ Add Ingredient',
+      'ar': '',
+    },
+    'tfcd12w7': {
+      'en': 'Preparation Steps',
+      'ar': '',
+    },
+    'us1csitl': {
+      'en': '+ Add Step',
+      'ar': '',
+    },
+    'cd4nmsjt': {
+      'en': 'Create Recipe',
+      'ar': '',
+    },
+    'qjwqmq21': {
+      'en': 'Recipe Title is required',
+      'ar': '',
+    },
+    'i54cswx5': {
+      'en': 'Minimum required characters is 3',
+      'ar': '',
+    },
+    'wk2v1n9x': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
+    'ou0o5zjt': {
+      'en': 'Short Description is required',
+      'ar': '',
+    },
+    '6hwdun0j': {
+      'en': 'Please choose an option from the dropdown',
+      'ar': '',
+    },
+  },
+  // CommentOnRecipe
+  {
+    '2nzjrpjh': {
+      'en': 'Share your thoughts',
+      'ar': '',
+    },
+    '1t6td5lx': {
+      'en': 'Write your comment here...',
+      'ar': '',
+    },
+    'wsz4k7h1': {
+      'en': 'Post Comment',
+      'ar': '',
+    },
+    '8ct369py': {
+      'en': 'Add Comment',
+      'ar': '',
+    },
+  },
+  // UserFavourites
+  {
+    'kl3h7u6n': {
+      'en': 'Favourites',
+      'ar': '',
+    },
+    'ifcjc739': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
+  // UserLikes
+  {
+    'ysc2gila': {
+      'en': 'Likes',
+      'ar': '',
+    },
+    'jres9zpz': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
+  // UserRecipes
+  {
+    '8frgsaxk': {
+      'en': 'Recipes',
+      'ar': '',
+    },
+    '6k0u54nc': {
+      'en': 'Home',
+      'ar': '',
+    },
+  },
+  // NotificationBadge
+  {
+    'xlisc1fw': {
+      'en': '1',
+      'ar': '',
+    },
+  },
+  // ImagePickerComponent
+  {
+    'h1716c99': {
+      'en': 'Add Recipe Photo',
+      'ar': '',
+    },
+  },
+  // PreperationStepInputComponent
+  {
+    '3mj2wp9k': {
+      'en': 'Step Description',
+      'ar': '',
+    },
+  },
+  // IngredientInput
+  {
+    '0szxn964': {
+      'en': 'Amount',
+      'ar': '',
+    },
+    'q728t1e2': {
+      'en': 'Unit',
+      'ar': '',
+    },
+    'n0o4mk48': {
+      'en': 'Ingredient',
+      'ar': '',
+    },
+  },
+  // RatingBarComponent
+  {
+    'ei1jmheo': {
+      'en': 'Rate this recipe',
+      'ar': '',
+    },
+    'ku31mfjg': {
+      'en': 'Rate',
       'ar': '',
     },
   },

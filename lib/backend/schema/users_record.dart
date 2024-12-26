@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -45,6 +46,31 @@ class UsersRecord extends FirestoreRecord {
   String get phoneNumber => _phoneNumber ?? '';
   bool hasPhoneNumber() => _phoneNumber != null;
 
+  // "favourites" field.
+  List<DocumentReference>? _favourites;
+  List<DocumentReference> get favourites => _favourites ?? const [];
+  bool hasFavourites() => _favourites != null;
+
+  // "likes" field.
+  List<DocumentReference>? _likes;
+  List<DocumentReference> get likes => _likes ?? const [];
+  bool hasLikes() => _likes != null;
+
+  // "comments" field.
+  List<DocumentReference>? _comments;
+  List<DocumentReference> get comments => _comments ?? const [];
+  bool hasComments() => _comments != null;
+
+  // "posts" field.
+  List<DocumentReference>? _posts;
+  List<DocumentReference> get posts => _posts ?? const [];
+  bool hasPosts() => _posts != null;
+
+  // "recipes_rated" field.
+  List<DocumentReference>? _recipesRated;
+  List<DocumentReference> get recipesRated => _recipesRated ?? const [];
+  bool hasRecipesRated() => _recipesRated != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -52,6 +78,11 @@ class UsersRecord extends FirestoreRecord {
     _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
     _phoneNumber = snapshotData['phone_number'] as String?;
+    _favourites = getDataList(snapshotData['favourites']);
+    _likes = getDataList(snapshotData['likes']);
+    _comments = getDataList(snapshotData['comments']);
+    _posts = getDataList(snapshotData['posts']);
+    _recipesRated = getDataList(snapshotData['recipes_rated']);
   }
 
   static CollectionReference get collection =>
@@ -114,12 +145,18 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
 
   @override
   bool equals(UsersRecord? e1, UsersRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.email == e2?.email &&
         e1?.displayName == e2?.displayName &&
         e1?.photoUrl == e2?.photoUrl &&
         e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
-        e1?.phoneNumber == e2?.phoneNumber;
+        e1?.phoneNumber == e2?.phoneNumber &&
+        listEquality.equals(e1?.favourites, e2?.favourites) &&
+        listEquality.equals(e1?.likes, e2?.likes) &&
+        listEquality.equals(e1?.comments, e2?.comments) &&
+        listEquality.equals(e1?.posts, e2?.posts) &&
+        listEquality.equals(e1?.recipesRated, e2?.recipesRated);
   }
 
   @override
@@ -129,7 +166,12 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.photoUrl,
         e?.uid,
         e?.createdTime,
-        e?.phoneNumber
+        e?.phoneNumber,
+        e?.favourites,
+        e?.likes,
+        e?.comments,
+        e?.posts,
+        e?.recipesRated
       ]);
 
   @override

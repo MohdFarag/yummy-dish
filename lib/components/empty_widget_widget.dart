@@ -6,7 +6,12 @@ import 'empty_widget_model.dart';
 export 'empty_widget_model.dart';
 
 class EmptyWidgetWidget extends StatefulWidget {
-  const EmptyWidgetWidget({super.key});
+  const EmptyWidgetWidget({
+    super.key,
+    String? content,
+  }) : content = content ?? 'Content';
+
+  final String content;
 
   @override
   State<EmptyWidgetWidget> createState() => _EmptyWidgetWidgetState();
@@ -39,15 +44,13 @@ class _EmptyWidgetWidgetState extends State<EmptyWidgetWidget> {
   @override
   Widget build(BuildContext context) {
     return Text(
-      FFLocalizations.of(context).getText(
-        'uig3ff8g' /* No Content */,
-      ),
+      'No ${widget.content}',
       textAlign: TextAlign.center,
-      style: FlutterFlowTheme.of(context).displaySmall.override(
-            fontFamily: FlutterFlowTheme.of(context).displaySmallFamily,
+      style: FlutterFlowTheme.of(context).headlineMedium.override(
+            fontFamily: FlutterFlowTheme.of(context).headlineMediumFamily,
             letterSpacing: 0.0,
             useGoogleFonts: GoogleFonts.asMap()
-                .containsKey(FlutterFlowTheme.of(context).displaySmallFamily),
+                .containsKey(FlutterFlowTheme.of(context).headlineMediumFamily),
           ),
     );
   }

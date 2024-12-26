@@ -1,6 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -140,7 +139,7 @@ class _AuthorizationWidgetState extends State<AuthorizationWidget>
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
           child: Column(
@@ -155,6 +154,7 @@ class _AuthorizationWidgetState extends State<AuthorizationWidget>
                   style: FlutterFlowTheme.of(context).displaySmall.override(
                         fontFamily:
                             FlutterFlowTheme.of(context).displaySmallFamily,
+                        color: FlutterFlowTheme.of(context).primary,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w900,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
@@ -182,6 +182,63 @@ class _AuthorizationWidgetState extends State<AuthorizationWidget>
                             const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                         child: Column(
                           children: [
+                            Align(
+                              alignment: const Alignment(0.0, 0),
+                              child: TabBar(
+                                labelColor:
+                                    FlutterFlowTheme.of(context).primaryText,
+                                unselectedLabelColor:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                labelPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyLargeFamily,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.bold,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLargeFamily),
+                                    ),
+                                unselectedLabelStyle:
+                                    FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLargeFamily,
+                                          letterSpacing: 0.0,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLargeFamily),
+                                        ),
+                                indicatorColor:
+                                    FlutterFlowTheme.of(context).primary,
+                                indicatorWeight: 3.0,
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                tabs: [
+                                  Tab(
+                                    text: FFLocalizations.of(context).getText(
+                                      '2j5k3lnx' /* Create Account */,
+                                    ),
+                                  ),
+                                  Tab(
+                                    text: FFLocalizations.of(context).getText(
+                                      'b45j31oa' /* Log In */,
+                                    ),
+                                  ),
+                                ],
+                                controller: _model.tabBarController,
+                                onTap: (i) async {
+                                  [() async {}, () async {}][i]();
+                                },
+                              ),
+                            ),
                             Expanded(
                               child: TabBarView(
                                 controller: _model.tabBarController,
@@ -557,7 +614,7 @@ class _AuthorizationWidgetState extends State<AuthorizationWidget>
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                      '4nrdqeor' /* Password */,
+                                                      '4nrdqeor' /* Confirm Password */,
                                                     ),
                                                     labelStyle: FlutterFlowTheme
                                                             .of(context)
@@ -725,6 +782,10 @@ class _AuthorizationWidgetState extends State<AuthorizationWidget>
                                                     if (user == null) {
                                                       return;
                                                     }
+
+                                                    // VerifyEmail
+                                                    await authManager
+                                                        .sendEmailVerification();
 
                                                     context.goNamedAuth('feed',
                                                         context.mounted);
@@ -1719,18 +1780,8 @@ class _AuthorizationWidgetState extends State<AuthorizationWidget>
                                                         0.0, 0.0, 0.0, 16.0),
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
-                                                    GoRouter.of(context)
-                                                        .prepareAuthEvent();
-                                                    final user =
-                                                        await authManager
-                                                            .signInWithGoogle(
-                                                                context);
-                                                    if (user == null) {
-                                                      return;
-                                                    }
-
-                                                    context.goNamedAuth('feed',
-                                                        context.mounted);
+                                                    context.pushNamed(
+                                                        'ForgotPassword');
                                                   },
                                                   text: FFLocalizations.of(
                                                           context)
@@ -1749,7 +1800,7 @@ class _AuthorizationWidgetState extends State<AuthorizationWidget>
                                                                 0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .secondaryBackground,
+                                                        .primaryBackground,
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .bodyMedium
@@ -1769,10 +1820,7 @@ class _AuthorizationWidgetState extends State<AuthorizationWidget>
                                                                       .bodyMediumFamily),
                                                         ),
                                                     elevation: 0.0,
-                                                    borderSide: BorderSide(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
+                                                    borderSide: const BorderSide(
                                                       width: 2.0,
                                                     ),
                                                     borderRadius:
@@ -1793,75 +1841,6 @@ class _AuthorizationWidgetState extends State<AuthorizationWidget>
                                     ),
                                   ),
                                 ],
-                              ),
-                            ),
-                            Align(
-                              alignment: const Alignment(0.0, 0),
-                              child: FlutterFlowButtonTabBar(
-                                useToggleButtonStyle: true,
-                                labelStyle: FlutterFlowTheme.of(context)
-                                    .bodyLarge
-                                    .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyLargeFamily,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyLargeFamily),
-                                    ),
-                                unselectedLabelStyle:
-                                    FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyLargeFamily,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyLargeFamily),
-                                        ),
-                                labelColor:
-                                    FlutterFlowTheme.of(context).primaryText,
-                                unselectedLabelColor:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                backgroundColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                unselectedBackgroundColor:
-                                    FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                borderColor:
-                                    FlutterFlowTheme.of(context).alternate,
-                                unselectedBorderColor:
-                                    FlutterFlowTheme.of(context).alternate,
-                                borderWidth: 2.0,
-                                borderRadius: 24.0,
-                                elevation: 0.0,
-                                labelPadding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                buttonMargin: const EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 12.0, 0.0),
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                tabs: [
-                                  Tab(
-                                    text: FFLocalizations.of(context).getText(
-                                      '2j5k3lnx' /* Create Account */,
-                                    ),
-                                  ),
-                                  Tab(
-                                    text: FFLocalizations.of(context).getText(
-                                      'b45j31oa' /* Log In */,
-                                    ),
-                                  ),
-                                ],
-                                controller: _model.tabBarController,
-                                onTap: (i) async {
-                                  [() async {}, () async {}][i]();
-                                },
                               ),
                             ),
                           ],
